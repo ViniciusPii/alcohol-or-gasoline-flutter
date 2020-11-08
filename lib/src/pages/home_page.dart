@@ -10,32 +10,40 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  Color _color = Colors.deepPurple;
+
   var _gasCtrl = new MoneyMaskedTextController();
   var _alcCtrl = new MoneyMaskedTextController();
 
   var _busy = false;
   var _completed = false;
-  var _resultText = 'Compensa usar álcool';
+  var _resultText = '';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
-      body: ListView(
-        children: [
-          LogoComponent(),
-          _completed
-              ? ResultComponent(
-                  result: _resultText,
-                  function: () {},
-                )
-              : SubmitFormComponent(
-                  gasCtrl: _gasCtrl,
-                  alcCtrl: _alcCtrl,
-                  busy: _busy,
-                  function: calculate,
-                ),
-        ],
+      body: AnimatedContainer(
+        duration: Duration(
+          seconds: 1,
+        ),
+        color: _color,
+        child: ListView(
+          children: [
+            LogoComponent(),
+            _completed
+                ? ResultComponent(
+                    result: _resultText,
+                    function: reset,
+                  )
+                : SubmitFormComponent(
+                    gasCtrl: _gasCtrl,
+                    alcCtrl: _alcCtrl,
+                    busy: _busy,
+                    function: calculate,
+                  ),
+          ],
+        ),
       ),
     );
   }
@@ -49,6 +57,35 @@ class _HomeState extends State<Home> {
 
     setState(() {
       _busy = true;
+      _color = Colors.deepPurpleAccent;
+    });
+
+    return new Future.delayed(
+      const Duration(seconds: 1),
+      () {
+        setState(
+          () {
+            if (res >= 0.7) {
+              _resultText = 'Utilize Gasolina!';
+            } else {
+              _resultText = 'Utilize Álcool!';
+            }
+
+            _busy = false;
+            _completed = true;
+          },
+        );
+      },
+    );
+  }
+
+  reset() {
+    setState(() {
+      _alcCtrl = new MoneyMaskedTextController();
+      _gasCtrl = new MoneyMaskedTextController();
+      _completed = false;
+      _busy = false;
+      _color = Colors.deepPurple;
     });
   }
 }
