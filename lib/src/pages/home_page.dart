@@ -1,3 +1,4 @@
+import 'package:alcool_ou_gasolina/src/components/button_component.dart';
 import 'package:alcool_ou_gasolina/src/components/input_component.dart';
 import 'package:alcool_ou_gasolina/src/components/logo_component.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,33 @@ class Home extends StatelessWidget {
       body: ListView(
         children: [
           LogoComponent(),
+          Container(
+            margin: EdgeInsets.all(32),
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.8),
+              borderRadius: BorderRadius.circular(24),
+            ),
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(24),
+                  child: Text(
+                    'Compensa Utilizar Gasolina',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Theme.of(context).primaryColor,
+                      fontSize: 32,
+                      fontFamily: 'Big Shoulders Display',
+                    ),
+                  ),
+                ),
+                ButtonComponent(
+                  textButton: 'Calcular Novamente',
+                  function: (){},
+                )
+              ],
+            ),
+          ),
           InputComponent(
             label: 'Gasolina',
             ctrl: _gasCtrl,
@@ -22,26 +50,10 @@ class Home extends StatelessWidget {
             label: 'Álcool',
             ctrl: _alcCtrl,
           ),
-          Container(
-            margin: EdgeInsets.all(30),
-            height: 60,
-            decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.8),
-              borderRadius: BorderRadius.circular(60),
-            ),
-            child: FlatButton(
-              child: Text(
-                'Calcular',
-                style: TextStyle(
-                  color: Theme.of(context).primaryColor,
-                  fontSize: 24,
-                  fontFamily: 'Big Shoulders Display',
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              onPressed: () {},
-            ),
-          )
+          ButtonComponent(
+            textButton: 'Calcular',
+            function: () {},
+          ),
         ],
       ),
     );
