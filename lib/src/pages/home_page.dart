@@ -1,6 +1,7 @@
 import 'package:alcool_ou_gasolina/src/components/button_component.dart';
 import 'package:alcool_ou_gasolina/src/components/input_component.dart';
 import 'package:alcool_ou_gasolina/src/components/logo_component.dart';
+import 'package:alcool_ou_gasolina/src/components/result_component.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 
@@ -15,34 +16,9 @@ class Home extends StatelessWidget {
       body: ListView(
         children: [
           LogoComponent(),
-          Container(
-            margin: EdgeInsets.all(32),
-            decoration: BoxDecoration(
-              color:  Colors.white.withOpacity(0.8),
-              borderRadius: BorderRadius.circular(24),
-            ),
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(24),
-                  child: Text(
-                    'Compensa Utilizar Gasolina',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Theme.of(context).primaryColor,
-                      fontSize: 32,
-                      fontFamily: 'Big Shoulders Display',
-                    ),
-                  ),
-                ),
-                ButtonComponent(
-                  textButton: 'Calcular Novamente',
-                  busy: false,
-                  invert: true,
-                  function: (){},
-                )
-              ],
-            ),
+          ResultComponent(
+            result: '',
+            function: (){},
           ),
           InputComponent(
             label: 'Gasolina',
@@ -54,7 +30,7 @@ class Home extends StatelessWidget {
           ),
           ButtonComponent(
             textButton: 'Calcular',
-            busy: true,
+            busy: false,
             invert: false,
             function: () {},
           ),

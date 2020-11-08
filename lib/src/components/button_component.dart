@@ -17,6 +17,7 @@ class ButtonComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return busy
         ? Container(
+            margin: EdgeInsets.symmetric(vertical: 32),
             alignment: Alignment.center,
             height: 50,
             child: CircularProgressIndicator(
