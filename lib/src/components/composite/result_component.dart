@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'button_component.dart';
+import '../simple/button_component.dart';
 
 class ResultComponent extends StatelessWidget {
   var result = "";

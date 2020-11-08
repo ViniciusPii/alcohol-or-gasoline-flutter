@@ -1,7 +1,8 @@
-import 'package:alcool_ou_gasolina/src/components/button_component.dart';
-import 'package:alcool_ou_gasolina/src/components/input_component.dart';
-import 'package:alcool_ou_gasolina/src/components/logo_component.dart';
-import 'package:alcool_ou_gasolina/src/components/result_component.dart';
+import 'package:alcool_ou_gasolina/src/components/composite/submit_form_component.dart';
+import 'package:alcool_ou_gasolina/src/components/simple/button_component.dart';
+import 'package:alcool_ou_gasolina/src/components/simple/input_component.dart';
+import 'package:alcool_ou_gasolina/src/components/simple/logo_component.dart';
+import 'package:alcool_ou_gasolina/src/components/composite/result_component.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 
@@ -20,19 +21,11 @@ class Home extends StatelessWidget {
             result: '',
             function: (){},
           ),
-          InputComponent(
-            label: 'Gasolina',
-            ctrl: _gasCtrl,
-          ),
-          InputComponent(
-            label: 'Álcool',
-            ctrl: _alcCtrl,
-          ),
-          ButtonComponent(
-            textButton: 'Calcular',
+          SubmitFormComponent(
+            gasCtrl: _gasCtrl,
+            alcCtrl: _alcCtrl,
             busy: false,
-            invert: false,
-            function: () {},
+            function: (){},
           ),
         ],
       ),
