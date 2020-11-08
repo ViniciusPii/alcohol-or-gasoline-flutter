@@ -1,9 +1,11 @@
-import 'package:alcool_ou_gasolina/src/components/logo.dart';
+import 'package:alcool_ou_gasolina/src/components/input_component.dart';
+import 'package:alcool_ou_gasolina/src/components/logo_component.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 
 class Home extends StatelessWidget {
   var _gasCtrl = new MoneyMaskedTextController();
+  var _alcCtrl = new MoneyMaskedTextController();
 
   @override
   Widget build(BuildContext context) {
@@ -12,67 +14,13 @@ class Home extends StatelessWidget {
       body: ListView(
         children: [
           LogoComponent(),
-          Row(
-            children: [
-              Container(
-                margin: EdgeInsets.only(right: 16),
-                width: 100,
-                alignment: Alignment.centerRight,
-                child: Text(
-                  'Gasolina',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 32,
-                    fontFamily: 'Big Shoulders Display',
-                  ),
-                ),
-              ),
-              Expanded(
-                child: TextFormField(
-                  controller: _gasCtrl,
-                  keyboardType: TextInputType.number,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 48,
-                    fontFamily: 'Big Shoulders Display',
-                  ),
-                  decoration: InputDecoration(
-                    border: InputBorder.none,
-                  ),
-                ),
-              ),
-            ],
+          InputComponent(
+            label: 'Gasolina',
+            ctrl: _gasCtrl,
           ),
-          Row(
-            children: [
-              Container(
-                margin: EdgeInsets.only(right: 16),
-                width: 100,
-                alignment: Alignment.centerRight,
-                child: Text(
-                  'Álcool',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 32,
-                    fontFamily: 'Big Shoulders Display',
-                  ),
-                ),
-              ),
-              Expanded(
-                child: TextFormField(
-                  controller: _gasCtrl,
-                  keyboardType: TextInputType.number,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 48,
-                    fontFamily: 'Big Shoulders Display',
-                  ),
-                  decoration: InputDecoration(
-                    border: InputBorder.none,
-                  ),
-                ),
-              ),
-            ],
+          InputComponent(
+            label: 'Álcool',
+            ctrl: _alcCtrl,
           ),
         ],
       ),
