@@ -22,6 +22,26 @@ class Home extends StatelessWidget {
             label: 'Álcool',
             ctrl: _alcCtrl,
           ),
+          Container(
+            margin: EdgeInsets.all(30),
+            height: 60,
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.8),
+              borderRadius: BorderRadius.circular(60),
+            ),
+            child: FlatButton(
+              child: Text(
+                'Calcular',
+                style: TextStyle(
+                  color: Theme.of(context).primaryColor,
+                  fontSize: 24,
+                  fontFamily: 'Big Shoulders Display',
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              onPressed: () {},
+            ),
+          )
         ],
       ),
     );
