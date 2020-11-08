@@ -18,7 +18,7 @@ class Home extends StatelessWidget {
           Container(
             margin: EdgeInsets.all(32),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.8),
+              color:  Colors.white.withOpacity(0.8),
               borderRadius: BorderRadius.circular(24),
             ),
             child: Column(
@@ -37,6 +37,8 @@ class Home extends StatelessWidget {
                 ),
                 ButtonComponent(
                   textButton: 'Calcular Novamente',
+                  busy: false,
+                  invert: true,
                   function: (){},
                 )
               ],
@@ -52,6 +54,8 @@ class Home extends StatelessWidget {
           ),
           ButtonComponent(
             textButton: 'Calcular',
+            busy: true,
+            invert: false,
             function: () {},
           ),
         ],
